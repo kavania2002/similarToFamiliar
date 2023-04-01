@@ -16,8 +16,8 @@ api_secret = API_SECRET
 flickr = flickrapi.FlickrAPI(api_key, api_secret, format='parsed-json')
 
 # Finding Groups related to Topic
-topic = "nature"
-maxGroups = 5
+topic = "black and white"
+maxGroups = 15
 
 
 def authentication():
@@ -43,7 +43,6 @@ def authentication():
 
 
 def groupMembers():
-
     resp = flickr.groups.search(text=topic)
 
     print(f"Total Number of Groups: {resp['groups']['total']}")
@@ -53,13 +52,15 @@ def groupMembers():
 
     groupCount = 0
     groupIDs = []
+    
+    uniqueMembers = {}
 
     for groupPage in range(1, resp['groups']['pages']+1):
         groupsResponse = flickr.groups.search(
             text=topic, per_page=500, page=groupPage)
 
         for group in groupsResponse['groups']['group']:
-            if (int(group['members']) <= 1000):
+            if (int(group['members']) >= 1000 and int(group['members']) <= 2000):
                 groupIDs.append(group['nsid'])
                 groupCount += 1
 
@@ -96,8 +97,10 @@ def groupMembers():
                     print(
                         f"Page: {memberListPage}, Per Page: {members['members']['perpage']}")
                     for member in members['members']['member']:
-                        nodeWriter.writerow(
-                            [member['nsid'], member['username']])
+                        if (uniqueMembers.get(member['nsid']) == None):
+                            nodeWriter.writerow(
+                                [member['nsid'], member['username']])
+                            uniqueMembers[member['nsid']] = member['username']
                         allMembers.append(member['nsid'])
 
             print('Number of Members Before Writing: ', len(allMembers))
@@ -121,7 +124,7 @@ def findFollowing():
     for (userId, username) in membersList:
 
         try:
-            # the first row contains Id
+            # the first row contains Id.
             if (userId != 'Id'):
                 # list of people the person is following
                 following = flickr.contacts.getPublicList(user_id=userId)
@@ -147,7 +150,7 @@ if __name__ == "__main__":
     authentication()
 
     print(f"Step2: Finding groups relating to '{topic}'")
-    # groupMembers()
+    groupMembers()
 
     print("Step3: Find Followings of all Obtained People")
-    # findFollowing()
+    findFollowing()
