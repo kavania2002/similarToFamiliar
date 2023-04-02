@@ -70,11 +70,13 @@ def groupMembers():
             break
 
     # Form an edge between the member within same group
-    edges = open(f'./dataset/{topic}/edges{maxGroups}.csv', 'w', newline='')
+    edges = open(f'./dataset/{topic}/edges{maxGroups}.csv',
+                 'w', newline='', encoding='utf-8')
     edgeWriter = csv.writer(edges)
     edgeWriter.writerow(["Source", "Target"])
 
-    nodes = open(f'./dataset/{topic}/nodes{maxGroups}.csv', 'w', newline='')
+    nodes = open(f'./dataset/{topic}/nodes{maxGroups}.csv',
+                 'w', newline='', encoding='utf-8')
     nodeWriter = csv.writer(nodes)
     nodeWriter.writerow(["Id", "Label"])
 
@@ -117,11 +119,11 @@ def groupMembers():
 
 def findFollowing():
     friends = open(
-        f'./dataset/{topic}/friends{maxGroups}.csv', 'w', newline='')
+        f'./dataset/{topic}/friends{maxGroups}.csv', 'w', newline='', encoding='utf-8')
     friendsWriter = csv.writer(friends)
 
     membersFile = open(
-        f'./dataset/{topic}/nodes{maxGroups}.csv', 'r', newline='')
+        f'./dataset/{topic}/nodes{maxGroups}.csv', 'r', newline='', encoding='utf-8')
     membersList = csv.reader(membersFile, delimiter=',')
     for (userId, username) in membersList:
 
