@@ -16,8 +16,8 @@ api_secret = API_SECRET
 flickr = flickrapi.FlickrAPI(api_key, api_secret, format='parsed-json')
 
 # Finding Groups related to Topic
-topic = "black and white"
-maxGroups = 15
+topic = input("Enter The Topic You want to Search For: ")
+maxGroups = int(input("Enter the Maximum number of Groups to search for: "))
 
 
 def authentication():
@@ -48,11 +48,11 @@ def groupMembers():
     print(f"Total Number of Groups: {resp['groups']['total']}")
     print(f"Total Number of Pages: {resp['groups']['pages']}")
     print(
-        f"Therefore we will go for only {maxGroups} groups for now with not more than 1000 members...")
+        f"Therefore we will go for only {maxGroups} groups for now with 1000 - 2000 members...")
 
     groupCount = 0
     groupIDs = []
-    
+
     uniqueMembers = {}
 
     for groupPage in range(1, resp['groups']['pages']+1):
@@ -70,11 +70,11 @@ def groupMembers():
             break
 
     # Form an edge between the member within same group
-    edges = open(f'edges{maxGroups}.csv', 'w')
+    edges = open(f'./dataset/{topic}/edges{maxGroups}.csv', 'w', newline='')
     edgeWriter = csv.writer(edges)
     edgeWriter.writerow(["Source", "Target"])
 
-    nodes = open(f'nodes{maxGroups}.csv', 'w')
+    nodes = open(f'./dataset/{topic}/nodes{maxGroups}.csv', 'w', newline='')
     nodeWriter = csv.writer(nodes)
     nodeWriter.writerow(["Id", "Label"])
 
@@ -116,10 +116,12 @@ def groupMembers():
 
 
 def findFollowing():
-    friends = open(f'friends{maxGroups}.csv', 'w')
+    friends = open(
+        f'./dataset/{topic}/friends{maxGroups}.csv', 'w', newline='')
     friendsWriter = csv.writer(friends)
 
-    membersFile = open(f'nodes{maxGroups}.csv', 'r')
+    membersFile = open(
+        f'./dataset/{topic}/nodes{maxGroups}.csv', 'r', newline='')
     membersList = csv.reader(membersFile, delimiter=',')
     for (userId, username) in membersList:
 
@@ -138,7 +140,7 @@ def findFollowing():
                     for member in following['contacts']['contact']:
                         friendsWriter.writerow([userId, member['nsid']])
         except:
-            with open('sample.txt', 'w') as file:
+            with open('/dataset/{topic}/error.txt', 'a+', newline='') as file:
                 file.write(f"{userId} made errors for us")
             print(f"{userId} made errors for us")
 
@@ -146,6 +148,11 @@ def findFollowing():
 
 
 if __name__ == "__main__":
+
+    # create a folder dataset
+    path = os.path.join(os.getcwd(), f'dataset/{topic}')
+    os.makedirs(path, exist_ok=True)
+
     print("Step1: Authentication")
     authentication()
 
