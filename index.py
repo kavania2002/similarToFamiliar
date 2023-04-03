@@ -126,7 +126,8 @@ def findFollowing():
         f'./dataset/{topic}/nodes{maxGroups}.csv', 'r', newline='', encoding='utf-8')
 
     # creating blank error.txt file
-    with open(f'./dataset/{topic}/error.txt', 'w') as fp:
+    errorFilePath = f'./dataset/{topic}/error.txt'
+    with open(errorFilePath, 'w') as fp:
         pass
 
     membersList = csv.reader(membersFile, delimiter=',')
