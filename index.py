@@ -148,7 +148,7 @@ def findFollowing():
                         friendsWriter.writerow([userId, member['nsid']])
         except:
             with open(f'./dataset/{topic}/error{maxGroups}.txt', 'a', newline='') as file:
-                file.write(f"{userId} made errors for us")
+                file.write(f"{userId} made errors for us\n")
             print(f"{userId} made errors for us")
 
     friends.close()
