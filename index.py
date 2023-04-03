@@ -142,7 +142,7 @@ def findFollowing():
                     for member in following['contacts']['contact']:
                         friendsWriter.writerow([userId, member['nsid']])
         except:
-            with open('/dataset/{topic}/error.txt', 'a+', newline='') as file:
+            with open('./dataset/{topic}/error.txt', 'a+', newline='') as file:
                 file.write(f"{userId} made errors for us")
             print(f"{userId} made errors for us")
 
