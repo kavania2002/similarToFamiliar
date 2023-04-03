@@ -124,6 +124,11 @@ def findFollowing():
 
     membersFile = open(
         f'./dataset/{topic}/nodes{maxGroups}.csv', 'r', newline='', encoding='utf-8')
+
+    # creating blank error.txt file
+    with open(f'./dataset/{topic}/error.txt', 'w') as fp:
+        pass
+
     membersList = csv.reader(membersFile, delimiter=',')
     for (userId, username) in membersList:
 
@@ -142,7 +147,7 @@ def findFollowing():
                     for member in following['contacts']['contact']:
                         friendsWriter.writerow([userId, member['nsid']])
         except:
-            with open('./dataset/{topic}/error.txt', 'a+', newline='') as file:
+            with open('./dataset/{topic}/error.txt', 'a', newline='') as file:
                 file.write(f"{userId} made errors for us")
             print(f"{userId} made errors for us")
 
