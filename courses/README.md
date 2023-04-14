@@ -11,4 +11,4 @@ As the script requires multiple input directories, the directories are listed in
 After collecting PDFs to analyse, store them in a directory. 
 
 #### Screenshot of OCR in a sample 
-[[https://github.com/kavania2002/similarToFamiliar/blob/main/courses/data/Screenshot_20230414_231910.png|alt=Image showing extracted text with bounding box]]
+[[/data/Screenshot_20230414_231910.png]]
