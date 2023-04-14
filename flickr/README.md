@@ -33,6 +33,18 @@
 
 
 ## Usage
+### Fetching the Flickr Data
+
+- First of all, get the Flickr API credentials from following [site](https://www.flickr.com/services/api/)
+
+- Create .env file and write data in the following format
+    ```
+    API_KEY=<FLICKR_API>
+    API_SECRET=<FLICKR SECRET>
+    ```
+
+- Run the [index.py](/flickr/index.py) and enter the topic you want to search for and the number of groups as asked.
+
 ### Obtaining the data
 The process requires having 2 datasets, a list of edges, and a list of friends. Preferably, it is stored in the format as ```edges{file_suffix}.csv``` and ```friends{file_suffix}.csv``` in the same directory as the ```main.cpp``` file.
 
