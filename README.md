@@ -5,7 +5,10 @@
 - To know more about the problem statement and the measures used, visit: [here](https://www.canva.com/design/DAFgEG4-BYI/EKRFpEQX_FeJZpqGWIPU5Q/view?utm_content=DAFgEG4-BYI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 - We looked into two datasets:
   - [Flickr](/flickr/)
-  - [AU Courses](/courses/)
+  - [Ahmedabad University's Courses](/courses/)
+
+## Ahmedabad University's Graph
+![Graph Association](/courses/data/graphAssociation.png)
 
 ## Instructions
 

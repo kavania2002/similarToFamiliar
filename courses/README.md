@@ -10,5 +10,5 @@ The sorted text is then interpreted, headings in the PDF like semester names are
 As the script requires multiple input directories, the directories are listed in the beginning of the python file [index.py](scripts/index.py).
 After collecting PDFs to analyse, store them in a directory. 
 
-#### Screenshot of OCR in a sample 
-[[/data/Screenshot_20230414_231910.png]]
+#### Screenshot of OCR in a sample
+![OCR Example](./data/Screenshot_20230414_231910.png)
