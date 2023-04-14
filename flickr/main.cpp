@@ -27,11 +27,11 @@ using namespace std;
 string GROUP_SIZE = "15";
 
 #ifdef is_OS_unix
-    string intermediate_data_dir = "../";// data-intermediate/";
-    string input_data_dir = "../";
+    string intermediate_data_dir = "./"; // data-intermediate/";
+    string input_data_dir = "./";
 #else
-    string intermediate_data_dir = "..\\"; //data-intermediate\\";
-    string input_data_dir = "..\\"; 
+    string intermediate_data_dir = ".\\"; //data-intermediate\\";
+    string input_data_dir = ".\\"; 
 #endif
 
 // Global variables
