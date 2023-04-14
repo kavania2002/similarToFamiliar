@@ -14,5 +14,5 @@
   
   ```pip install -r requirements.txt```
 
-- For running the Flickr Dataset, refer [Flickr](/flickr/README.md)
+- For running the Flickr Dataset, refer [Flickr](/flickr/)
 - For running the Courses Dataset, refer [courses](/courses/README.md)
