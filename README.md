@@ -7,7 +7,7 @@
   - [Flickr](/flickr/)
   - [Ahmedabad University's Courses](/courses/)
 
-## Ahmedabad University's Graph
+### Ahmedabad University's Graph
 ![Graph Association](/courses/data/graphAssociation.png)
 
 ## Instructions
