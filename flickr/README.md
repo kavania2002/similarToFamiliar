@@ -30,3 +30,29 @@
 - Used [main.cpp](/flickr/main.cpp) to analyse the data and plot the graph using [cppPlotter.ipynb](/flickr/cppPlotter.ipynb)
 
 - You can see the results here: [category-wise](/flickr/category-wise/)
+
+
+## Usage
+### Obtaining the data
+The process requires having 2 datasets, a list of edges, and a list of friends. Preferably, it is stored in the format as ```edges{file_suffix}.csv``` and ```friends{file_suffix}.csv``` in the same directory as the ```main.cpp``` file.
+
+
+### Compiling the C++ data processor
+#### On Unix-like OS (linux/macOS)
+
+In the directory of main.cpp, execute
+
+```bash
+g++ main.cpp -o main
+```
+
+then to run the compiled binary, execute the following
+
+```bash
+./main ${file_suffix}
+```
+
+Here, add the suffix, the following files have in the format ```edges{file_suffix}.csv``` and ```friends{file_suffix}.csv```
+for example, ```edges15.csv``` has the suffix ```15```.
+
+When executing, there will be additional intermediate files generated and stored in same directory to make it run faster next time.
