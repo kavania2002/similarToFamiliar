@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# loading the Flick API Keys from .env file
 API_KEY = os.getenv('API_KEY')
 API_SECRET = os.getenv('API_SECRET')
 
@@ -156,7 +157,7 @@ def findFollowing():
 
 if __name__ == "__main__":
 
-    # create a folder dataset
+    # create a folder dataset if not exists
     path = os.path.join(os.getcwd(), f'dataset/{topic}')
     os.makedirs(path, exist_ok=True)
 
