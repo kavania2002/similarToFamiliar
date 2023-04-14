@@ -2,6 +2,7 @@
 ## Part of Course CSE533 - Social Network Analysis
 
 - Modelling familiarity between nodes based on similarity relationships present in the network.
+- To know more about the problem statement and the measures used, visit: [here](https://www.canva.com/design/DAFgEG4-BYI/EKRFpEQX_FeJZpqGWIPU5Q/view?utm_content=DAFgEG4-BYI&utm_campaign=designshare&utm_medium=link&utm_source=publishsharelink)
 - We looked into two datasets:
   - [Flickr](/flickr/)
   - [AU Courses](/courses/)
